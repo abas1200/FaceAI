@@ -1,0 +1,47 @@
+{
+  "Serilog": {
+    "Using": [
+      "Serilog.Sinks.Console",
+      "Serilog.Sinks.File"
+    ],
+    "MinimumLevel": {
+      "Default": "Debug",
+      "Override": {
+        "System": "Warning",
+        "Microsoft": "Warning"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Console",
+        "Args": {
+          "formatter": "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+        }
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "/var/log/cluster/adminuibff/log.log",
+          "RollOnFileSizeLimit": true,
+          "restrictedToMinimumLevel": "Information",
+          "fileSizeLimitBytes": 5242880,
+          "Shared": false,
+          "retainedFileCountLimit": "50",
+          "outputTemplate": "{NewLine}====={Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}]=============={NewLine}{Message:lj}{NewLine}{Properties:lj}{NewLine}{Exception}",
+          "buffered": true,
+          "flushToDiskInterval": "1"
+        }
+      }
+    ],
+    "Enrich": [
+      "FromLogContext",
+      "WithMachineName",
+      "WithThreadId",
+      "WithCorrelationId",
+      "WithEnvironmentName"
+    ],
+    "Properties": {
+      "Environment": "Cloud"
+    }
+  }
+}

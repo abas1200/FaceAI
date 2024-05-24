@@ -1,0 +1,17 @@
+{
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning",
+        "App.Metrics": "Warning"
+      }
+    },
+
+    "Properties": {
+      "Application": "FaceAI System",
+      "SystemIdentifier": "FaceAI_System"
+    }
+  }
+}

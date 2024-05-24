@@ -1,0 +1,7 @@
+{
+  "ApplicationVersion": "1.0.0",
+  "environment": "Development",
+  "ReleaseNumber": "1.0.0.0",
+  "SystemName": "Face AI Backend For Frontend",
+  "SystemDescription": "Backend for Frontend APIs for a Face AI"
+}

@@ -1,0 +1,21 @@
+{
+  "Routes": [
+    // Login API
+    {
+      "DownstreamPathTemplate": "/api/v1/Login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7020"
+        }
+      ],
+      "UpstreamPathTemplate": "/Login",
+      "UpstreamHttpMethod": [ "POST"],
+      "FileCacheOptions": { "TtlSeconds": 30 }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:5003"
+  }
+}

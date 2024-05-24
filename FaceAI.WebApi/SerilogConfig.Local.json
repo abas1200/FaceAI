@@ -1,0 +1,25 @@
+{
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.Console" ],
+    "MinimumLevel": {
+      "Default": "Verbose",
+      "Override": {
+        "System": "Warning",
+        "Microsoft": "Warning"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Seq",
+        "Args": { "serverUrl": "http://localhost:5341" }
+      },
+      {
+        "Name": "Console",
+        "Args": {
+          "formatter": "Serilog.Formatting.Compact.CompactJsonFormatter, Serilog.Formatting.Compact"
+        }
+      }
+    ],
+    "Enrich": [ "FromLogContext", "WithMachineName", "WithThreadId", "WithCorrelationId", "WithEnvironmentName" ]
+  }
+}
